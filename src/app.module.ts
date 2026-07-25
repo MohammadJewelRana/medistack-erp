@@ -2,8 +2,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
 import { validationSchema } from './config/validation/validation.schema';
+import { PrismaModule } from './core/prisma';
 import { HealthModule } from './modules/health/health.module';
- 
 
 @Module({
   imports: [
@@ -14,7 +14,11 @@ import { HealthModule } from './modules/health/health.module';
       validationSchema,
     }),
 
+    PrismaModule,
+
     HealthModule,
   ],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
